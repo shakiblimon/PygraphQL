@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07996ee-e1e3-4a30-a4be-e5d6fb8d93c5" name="Default Changelist" comment="Updated model">
-      <change afterPath="$PROJECT_DIR$/../Basic/.idea/dictionaries/limon.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../fundametal/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../pygit_test/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../pygit_test/.idea/pygit_test.iml" afterDir="false" />
@@ -1962,8 +1961,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="442">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -1983,10 +1982,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testapp/schema.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+            <state relative-caret-position="452">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
               <folding>
-                <element signature="e#1#27#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2036,12 +2035,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/testapp/models.py" />
         <option value="$PROJECT_DIR$/testapp/admin.py" />
         <option value="$PROJECT_DIR$/PygraphQL/settings.py" />
         <option value="$PROJECT_DIR$/PygraphQL/schema.py" />
         <option value="$PROJECT_DIR$/testapp/urls.py" />
         <option value="$PROJECT_DIR$/PygraphQL/urls.py" />
+        <option value="$PROJECT_DIR$/testapp/models.py" />
         <option value="$PROJECT_DIR$/testapp/schema.py" />
       </list>
     </option>
@@ -2134,7 +2133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549350949353</updated>
-      <workItem from="1549350951194" duration="5877000" />
+      <workItem from="1549350951194" duration="7416000" />
     </task>
     <task id="LOCAL-00001" summary="Updated model">
       <created>1549355244738</created>
@@ -2143,24 +2142,45 @@
       <option name="project" value="LOCAL" />
       <updated>1549355244738</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Graphene and Django using relay">
+      <created>1549360159449</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549360159449</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Model for Authorized authorized access">
+      <created>1549361220346</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1549361220349</updated>
+    </task>
+    <task id="LOCAL-00004" summary="limiting Field Access">
+      <created>1549361307544</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1549361307544</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5877000" />
+    <option name="totallyTimeSpent" value="7416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1413" y="24" width="1553" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24950364" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24950364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32893" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32893" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -2177,10 +2197,10 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24950364" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24950364" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32893" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32893" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" />
@@ -2204,7 +2224,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updated model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated model" />
+    <MESSAGE value="Graphene and Django using relay" />
+    <MESSAGE value="Model for Authorized authorized access" />
+    <MESSAGE value="limiting Field Access" />
+    <option name="LAST_COMMIT_MESSAGE" value="limiting Field Access" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/PygraphQL/settings.py">
@@ -2256,17 +2279,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="442">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testapp/schema.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+        <state relative-caret-position="452">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
           <folding>
-            <element signature="e#1#27#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

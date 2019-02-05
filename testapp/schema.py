@@ -30,7 +30,8 @@ class PostNode(DjangoObjectType):
     class Meta:
         model = Post
         only_fields = ('title', 'content')
-        interface = (relay.node)
+        exclude_fields = ('published', 'owner')
+        interfaces = (relay.node)
 
 
 class Query(object):
