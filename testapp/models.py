@@ -8,7 +8,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     notes = models.TextField()
@@ -18,3 +17,10 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 
+
+# Model for Authorized django auth
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    published = models.BooleanField(default=False)
+    owner = models.ForeignKey('auth.User')
