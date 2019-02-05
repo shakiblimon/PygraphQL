@@ -1,26 +1,33 @@
-import graphene
+from graphene import relay
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from testapp.models import Category, Ingredient
 
 
-class CategoryType(DjangoObjectType):
+class CategoryNode(DjangoObjectType):
     class Meta:
         model = Category
+        filter_fields = ['name', 'ingredients']
+        interfaces = (relay.Node,)
 
 
-class IngredientType(DjangoObjectType):
+class IngredientNode(DjangoObjectType):
     class Meta:
         model = Ingredient
+        # Allow for some more advanced filtering here
+        filter_fields = {
+            'name': ['exact', 'icontains', 'istartswith'],
+            'notes': ['exact', 'icontains'],
+            'category': ['exact'],
+            'category__name': ['exact'],
+        }
+        interfaces = (relay.Node,)
 
 
 class Query(object):
-    all_categories = graphene.List(CategoryType)
-    all_ingredients = graphene.List(IngredientType)
+    category = relay.Node.Field(CategoryNode)
+    all_categories = DjangoFilterConnectionField(CategoryNode)
 
-    def resolve_all_categories(self, info, **kwargs):
-        return Category.objects.all()
-
-    def resolve_all_ingredients(self, info, **kwargs):
-        # We can easily optimize query count in the resolve method
-        return Ingredient.objects.select_related('category').all()
+    ingredient = relay.Node.Field(IngredientNode)
+    all_ingredients = DjangoFilterConnectionField(IngredientNode)
