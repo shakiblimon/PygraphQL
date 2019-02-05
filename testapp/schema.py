@@ -2,7 +2,7 @@ from graphene import relay
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
-from testapp.models import Category, Ingredient
+from testapp.models import Category, Ingredient, Post
 
 
 class CategoryNode(DjangoObjectType):
@@ -23,6 +23,14 @@ class IngredientNode(DjangoObjectType):
             'category__name': ['exact'],
         }
         interfaces = (relay.Node,)
+
+#limiting Field Access
+
+class PostNode(DjangoObjectType):
+    class Meta:
+        model = Post
+        only_fields = ('title', 'content')
+        interface = (relay.node)
 
 
 class Query(object):
