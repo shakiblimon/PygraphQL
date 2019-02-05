@@ -30,7 +30,7 @@ class PostNode(DjangoObjectType):
     class Meta:
         model = Post
         only_fields = ('title', 'content')
-        exclude_fields = ('published', 'owner')
+        exclude_fields = ('published', 'owner') #   Adding excluded field into schema
         interfaces = (relay.node)
 
 
@@ -40,3 +40,9 @@ class Query(object):
 
     ingredient = relay.Node.Field(IngredientNode)
     all_ingredients = DjangoFilterConnectionField(IngredientNode)
+
+    ## Queryset Filtering On Lists
+
+    all_posts = DjangoFilterConnectionField(PostNode)
+    def resolve_all_posts(self,info):
+        return Post.objects.filter(published=True)
