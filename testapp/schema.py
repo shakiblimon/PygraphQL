@@ -44,5 +44,6 @@ class Query(object):
     ## Queryset Filtering On Lists
 
     all_posts = DjangoFilterConnectionField(PostNode)
+
     def resolve_all_posts(self,info):
         return Post.objects.filter(published=True)
