@@ -42,7 +42,10 @@ INSTALLED_APPS = [
 ]
 
 GRAPHENE = {
-    'SCHEMA': 'PygraphQL.schema.schema'
+    'SCHEMA': 'PygraphQL.schema.schema',
+    'MIDDLEWARE': [
+        'grapehe_django.debug.DjangoDebugMiddleware'
+    ]
 }
 
 

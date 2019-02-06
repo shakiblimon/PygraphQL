@@ -31,7 +31,7 @@ class PostNode(DjangoObjectType):
         model = Post
         only_fields = ('title', 'content')
         exclude_fields = ('published', 'owner') #   Adding excluded field into schema
-        interfaces = (relay.node)
+        interfaces = (relay.Node)
 
 
 class Query(object):
