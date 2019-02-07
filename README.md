@@ -22,7 +22,17 @@ GRAPHENE = {
 }
 ```
 **django_project_name == your django project name**
+```
+import graphene
+import {app_name}.schema
 
+# Query for getting the data from the server.
+class Query({app_name}.schema.Query, graphene.ObjectType):
+    pass
+
+# Create schema
+schema = graphene.Schema(query=Query)
+```
 ### Authorization in Django
 There are several ways you may want to limit access to data when working with Graphene and Django: 
 limiting which fields are accessible via GraphQL and limiting which objects a user can access.
@@ -38,17 +48,6 @@ class Post(models.Model):
 ```
 owner = models.ForeignKey(**'auth.User'**, on_delete=models.CASCADE)
 
-```
-import graphene
-import {app_name}.schema
-
-# Query for getting the data from the server.
-class Query({app_name}.schema.Query, graphene.ObjectType):
-    pass
-
-# Create schema
-schema = graphene.Schema(query=Query)
-```
 ### Creating your query
 **GraphQL query language is all about selecting fields on objects.**
 
