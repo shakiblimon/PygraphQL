@@ -11,7 +11,6 @@ class CategoryNode(DjangoObjectType):
         filter_fields = ['name', 'ingredients']
         interfaces = (relay.Node,)
 
-
 class IngredientNode(DjangoObjectType):
     class Meta:
         model = Ingredient
@@ -25,13 +24,23 @@ class IngredientNode(DjangoObjectType):
         interfaces = (relay.Node,)
 
 #limiting Field Access
-
 class PostNode(DjangoObjectType):
     class Meta:
         model = Post
-        only_fields = ('title', 'content')
-        exclude_fields = ('published', 'owner') #   Adding excluded field into schema
-        interfaces = (relay.Node)
+        filter_fields = ['title', 'content']
+        exclude_fields = ['published', 'owner'] #   Adding excluded field into schema
+        interfaces = (relay.Node,)
+
+    @classmethod
+    def get_node(cls, info, id):
+        try:
+            post = cls._meta.model.objects.get(id=id)
+        except cls._meta.model.DoesNotExist:
+            return None
+
+        if post.published or info.context.user == post.owner:
+            return  post
+        return  None
 
 
 class Query(object):
@@ -47,3 +56,15 @@ class Query(object):
 
     def resolve_all_posts(self,info):
         return Post.objects.filter(published=True)
+
+    #   Userbased Filtering Onlist
+
+    my_post = DjangoFilterConnectionField(PostNode)
+
+    def resolve_ny_post(self,info):
+        #context will referance to the Django request
+
+        if not info.comtext.user.is_authenticated():
+            return Post.objects.none()
+        else:
+            return Post.objects.filter(owner=info.comtext.user)
