@@ -16,6 +16,7 @@ INSTALLED_APPS = (
 )
 ```
 ### Schema Settings
+Set your schema into **_settings.py_**
 ```
 GRAPHENE = {
     'SCHEMA': '{django_project_name}.schema.schema',
@@ -65,6 +66,18 @@ class CategoryNode(DjangoObjectType):
 ```
 interfaces = (**relay.Node**,)
 
+### GraphQL & Django debuging middleware
 
-
+You can debug your GraphQL queries in a similar way to django-debug-toolbar, but outputing in the results in 
+GraphQL response as fields, instead of the graphical HTML interface.
+Set it into **_settings.py_**
+```.env
+GRAPHENE = {
+    'SCHEMA': 'PygraphQL.schema.schema',
+    'MIDDLEWARE': [
+        'grapehe_django.debug.DjangoDebugMiddleware'
+    ]
+}
+```
+update in progress
 
