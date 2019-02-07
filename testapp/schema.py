@@ -39,8 +39,8 @@ class PostNode(DjangoObjectType):
             return None
 
         if post.published or info.context.user == post.owner:
-            return  post
-        return  None
+            return post
+        return None
 
 
 class Query(object):
