@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e07996ee-e1e3-4a30-a4be-e5d6fb8d93c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testapp/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/testapp/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PygraphQL/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
+            <state relative-caret-position="232">
               <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -44,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+            <state relative-caret-position="249">
+              <caret line="21" selection-start-line="21" selection-end-line="25" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -86,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PygraphQL/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -94,6 +92,18 @@
               <folding>
                 <element signature="e#633#665#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="385">
+                <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -116,6 +126,7 @@
         <option value="$PROJECT_DIR$/testapp/schema.py" />
         <option value="$PROJECT_DIR$/testapp/urls.py" />
         <option value="$PROJECT_DIR$/PygraphQL/urls.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -213,7 +224,7 @@
       <workItem from="1549426482421" duration="7385000" />
       <workItem from="1549512599041" duration="1579000" />
       <workItem from="1549515040817" duration="34000" />
-      <workItem from="1549515078055" duration="1848000" />
+      <workItem from="1549515078055" duration="2707000" />
     </task>
     <task id="LOCAL-00001" summary="Updated model">
       <created>1549355244738</created>
@@ -278,17 +289,24 @@
       <option name="project" value="LOCAL" />
       <updated>1549438652061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="GraphQL Django Intregation updated">
+      <created>1549517167286</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1549517167287</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19702000" />
+    <option name="totallyTimeSpent" value="20561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1413" y="-4" width="1553" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26472536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13699536" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -347,7 +365,8 @@
     <MESSAGE value="Updated model" />
     <MESSAGE value="Debug middleware" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="GraphQL Django Intregation updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="GraphQL Django Intregation updated" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/manage.py">
@@ -398,20 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PygraphQL/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testapp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testapp/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -439,6 +444,30 @@
           <folding>
             <element signature="e#633#665#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PygraphQL/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="21" selection-start-line="21" selection-end-line="25" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="385">
+            <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
