@@ -33,6 +33,8 @@ class Query({app_name}.schema.Query, graphene.ObjectType):
 # Create schema
 schema = graphene.Schema(query=Query)
 ```
+**{app_name} == Your django project app name.**
+
 ### Authorization in Django
 There are several ways you may want to limit access to data when working with Graphene and Django: 
 limiting which fields are accessible via GraphQL and limiting which objects a user can access.
@@ -54,7 +56,6 @@ owner = models.ForeignKey(**'auth.User'**, on_delete=models.CASCADE)
 #### Using Relay
 >Graphene has complete support for Relay and offers some utils to make integration from Python easy.
 
-**Example**
 ```.env
 class CategoryNode(DjangoObjectType):
     class Meta:
