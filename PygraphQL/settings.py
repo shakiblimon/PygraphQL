@@ -38,14 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testapp.apps.TestappConfig',
-    'graphene_django',
+    'graphene_django'
 ]
 
 GRAPHENE = {
     'SCHEMA': 'PygraphQL.schema.schema',
-    'MIDDLEWARE': [
-        'grapehe_django.debug.DjangoDebugMiddleware'
-    ]
 }
 
 

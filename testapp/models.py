@@ -4,6 +4,16 @@ from django.db import models
 from graphene_django import DjangoObjectType
 from graphene_django.forms.mutation import DjangoModelFormMutation
 
+'''
+    GraphQL Authentication JWT
+'''
+class Link(models.Model):
+    url = models.URLField()
+    descriptions = models.TextField(blank=True)
+
+'''
+#####################################
+'''
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -39,18 +49,18 @@ class Pet(models.Model):
     def __str__(self):
         return  self.name
 
-class PetForm(models.Model):
-
-    class Meta:
-        models = Pet
-        fields = ('name')
-
-class PetType(DjangoObjectType):
-    class Meta:
-        models = Pet
-
-class PetMutation(DjangoModelFormMutation):
-    class Meta:
-        form_calss = PetForm
-        input_fields = 'data'
-        return_fields_name = 'my_pet'
+# class PetForm(models.Model):
+#
+#     class Meta:
+#         models = Pet
+#         fields = ('name')
+#
+# class PetType(DjangoObjectType):
+#     class Meta:
+#         models = Pet
+#
+# class PetMutation(DjangoModelFormMutation):
+#     class Meta:
+#         form_calss = PetForm
+#         input_fields = 'data'
+#         return_fields_name = 'my_pet'

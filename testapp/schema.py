@@ -1,8 +1,9 @@
+import graphene
 from graphene import relay
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
-from testapp.models import Category, Ingredient, Post
+from testapp.models import Category, Ingredient, Post, Link
 
 
 class CategoryNode(DjangoObjectType):
@@ -42,6 +43,18 @@ class PostNode(DjangoObjectType):
             return post
         return None
 
+'''
+    Link model content
+'''
+class LinkType(DjangoObjectType):
+    class Meta:
+        model = Link
+
+
+'''
+    #####################################
+'''
+
 
 class Query(object):
     category = relay.Node.Field(CategoryNode)
@@ -53,6 +66,12 @@ class Query(object):
     ## Queryset Filtering On Lists
 
     all_posts = DjangoFilterConnectionField(PostNode)
+
+    links = graphene.List(LinkType)
+
+
+    def resolve_link(self,info, **kwargs):
+        return Link.objects.all()
 
     def resolve_all_posts(self,info):
         return Post.objects.filter(published=True)
