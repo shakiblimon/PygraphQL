@@ -3,6 +3,8 @@ from graphene import relay
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
+from django.contrib.auth import get_user_model
+
 from testapp.models import Category, Ingredient, Post, Link
 
 
@@ -78,6 +80,32 @@ class Mutation(graphene.ObjectType):
 '''
     #####################################
 '''
+'''
+        Create User 
+'''
+
+class UserType(DjangoObjectType):
+    class Meta:
+        model = get_user_model()
+
+class CreateUser(graphene.Mutation):
+    user = graphene.Field(UserType)
+
+    class Aguments:
+        username = graphene.String(required =True)
+        password = graphene.String(required =True)
+        email = graphene.String(required =True)
+
+    def mutate(self, info, username, password, email):
+        user = get_user_model()(
+            username = username,
+        email= email,
+    )
+
+
+
+
+
 
 
 class Query(object):
