@@ -9,7 +9,7 @@ from graphene_django.forms.mutation import DjangoModelFormMutation
 '''
 class Link(models.Model):
     url = models.URLField()
-    descriptions = models.TextField(blank=True)
+    description = models.TextField(blank=True)
 
 '''
 #####################################
