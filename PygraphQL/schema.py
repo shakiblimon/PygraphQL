@@ -2,7 +2,7 @@ import graphene
 from graphene_django.debug import DjangoDebug
 
 import testapp.schema
-from testapp.schema import Mutation
+
 
 
 class Query(testapp.schema.Query, graphene.ObjectType):
