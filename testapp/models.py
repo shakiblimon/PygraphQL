@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 # Create your models here.
@@ -11,56 +12,60 @@ class Link(models.Model):
     url = models.URLField()
     description = models.TextField(blank=True)
 
-'''
+
+class Vote(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
+    link = models.ForeignKey('links.Link', null=True, on_delete=models.CASCADE)
+
 #####################################
-'''
-
-class Category(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-class Ingredient(models.Model):
-    name = models.CharField(max_length=100)
-    notes = models.TextField()
-    category = models.ForeignKey(
-        Category, related_name='ingredients', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-
-# Model for Authorized django auth
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    published = models.BooleanField(default=False)
-    owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.title
-
-# django form implemetation
-
-class Pet(models.Model):
-    name = models.CharField(max_length=250)
-
-    def __str__(self):
-        return  self.name
-
-# class PetForm(models.Model):
+# '''
 #
-#     class Meta:
-#         models = Pet
-#         fields = ('name')
+# class Category(models.Model):
+#     name = models.CharField(max_length=100)
 #
-# class PetType(DjangoObjectType):
-#     class Meta:
-#         models = Pet
+#     def __str__(self):
+#         return self.name
 #
-# class PetMutation(DjangoModelFormMutation):
-#     class Meta:
-#         form_calss = PetForm
-#         input_fields = 'data'
-#         return_fields_name = 'my_pet'
+# class Ingredient(models.Model):
+#     name = models.CharField(max_length=100)
+#     notes = models.TextField()
+#     category = models.ForeignKey(
+#         Category, related_name='ingredients', on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
+# # Model for Authorized django auth
+# class Post(models.Model):
+#     title = models.CharField(max_length=100)
+#     content = models.TextField()
+#     published = models.BooleanField(default=False)
+#     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.title
+#
+# # django form implemetation
+#
+# class Pet(models.Model):
+#     name = models.CharField(max_length=250)
+#
+#     def __str__(self):
+#         return  self.name
+#
+# # class PetForm(models.Model):
+# #
+# #     class Meta:
+# #         models = Pet
+# #         fields = ('name')
+# #
+# # class PetType(DjangoObjectType):
+# #     class Meta:
+# #         models = Pet
+# #
+# # class PetMutation(DjangoModelFormMutation):
+# #     class Meta:
+# #         form_calss = PetForm
+# #         input_fields = 'data'
+# #         return_fields_name = 'my_pet'

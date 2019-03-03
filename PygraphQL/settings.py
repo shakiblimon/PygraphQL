@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'testapp.apps.TestappConfig',
-    'graphene_django'
+    'graphene_django',
+    'users'
 ]
 
 GRAPHENE = {
