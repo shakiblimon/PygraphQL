@@ -1,5 +1,4 @@
 #!/home/limon/PycharmProjects/PygraphQL/venv/bin/python
-
 # -*- coding: utf-8 -*-
 import re
 import sys
