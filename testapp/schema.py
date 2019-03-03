@@ -1,55 +1,51 @@
+from django.db.models import Q
+
 import graphene
-import graphql_jwt
-from graphene import relay
 from graphene_django import DjangoObjectType
-from graphene_django.filter import DjangoFilterConnectionField
-
-from django.contrib.auth import *
-
-import testapp
-from testapp.models import Category, Ingredient, Post, Link
-from testapp.schema import CreateUser
+from graphql import GraphQLrror
 
 
-class CategoryNode(DjangoObjectType):
-    class Meta:
-        model = Category
-        filter_fields = ['name', 'ingredients']
-        interfaces = (relay.Node,)
 
 
-class IngredientNode(DjangoObjectType):
-    class Meta:
-        model = Ingredient
-        # Allow for some more advanced filtering here
-        filter_fields = {
-            'name': ['exact', 'icontains', 'istartswith'],
-            'notes': ['exact', 'icontains'],
-            'category': ['exact'],
-            'category__name': ['exact'],
-        }
-        interfaces = (relay.Node,)
-
-
-# limiting Field Access
-class PostNode(DjangoObjectType):
-    class Meta:
-        model = Post
-        filter_fields = ['title', 'content']
-        exclude_fields = ['published', 'owner']  # Adding excluded field into schema
-        interfaces = (relay.Node,)
-
-    @classmethod
-    def get_node(cls, info, id):
-        try:
-            post = cls._meta.model.objects.get(id=id)
-        except cls._meta.model.DoesNotExist:
-            return None
-
-        if post.published or info.context.user == post.owner:
-            return post
-        return None
-
+# class CategoryNode(DjangoObjectType):
+#     class Meta:
+#         model = Category
+#         filter_fields = ['name', 'ingredients']
+#         interfaces = (relay.Node,)
+#
+#
+# class IngredientNode(DjangoObjectType):
+#     class Meta:
+#         model = Ingredient
+#         # Allow for some more advanced filtering here
+#         filter_fields = {
+#             'name': ['exact', 'icontains', 'istartswith'],
+#             'notes': ['exact', 'icontains'],
+#             'category': ['exact'],
+#             'category__name': ['exact'],
+#         }
+#         interfaces = (relay.Node,)
+#
+#
+# # limiting Field Access
+# class PostNode(DjangoObjectType):
+#     class Meta:
+#         model = Post
+#         filter_fields = ['title', 'content']
+#         exclude_fields = ['published', 'owner']  # Adding excluded field into schema
+#         interfaces = (relay.Node,)
+#
+#     @classmethod
+#     def get_node(cls, info, id):
+#         try:
+#             post = cls._meta.model.objects.get(id=id)
+#         except cls._meta.model.DoesNotExist:
+#             return None
+#
+#         if post.published or info.context.user == post.owner:
+#             return post
+#         return None
+from testapp.models import Link
 
 '''
     Link model content
@@ -89,41 +85,7 @@ class CreateLink(graphene.Mutation):
 '''
     #####################################
 '''
-'''
-        Create User 
-'''
 
-
-class UserType(DjangoObjectType):
-    class Meta:
-        model = get_user_model()
-
-
-class CreateUser(graphene.Mutation):
-    user = graphene.Field(UserType)
-
-    class Aguments:
-        username = graphene.String(required=True)
-        password = graphene.String(required=True)
-        email = graphene.String(required=True)
-
-    def mutate(self, info, username, password, email):
-        user = get_user_model()(
-            username=username,
-            email=email,
-        )
-        user.set_password(password)
-        user.save()
-
-        return CreateUser(user=user)
-
-    class Mutation(graphene.ObjectType):
-        create_link = CreateLink.Field()
-        create_user = CreateUser.Field()
-
-        token_auth = graphql_jwt.ObtainJSONWebToken.Field()
-        verify_token = graphql_jwt.Verify.Field()
-        refresh_token = graphql_jwt.Refresh.Field()
 
 
 #########################
@@ -141,17 +103,7 @@ class Query(object):
 
     links = graphene.List(LinkType)
 
-    users = graphene.List(UserType)
 
-    def resolve_users(self, info):
-        return get_user_model().Objects.all()
-
-    def resolve_me(self, info):
-        user = info.context.user
-        if user.is_anonymous:
-            raise Exception('Not logged!')
-
-        return user
 #####################################
 
 
