@@ -79,5 +79,18 @@ GRAPHENE = {
     ]
 }
 ```
-update in progress
+### Screenshot
+Create User
+
+![create_user](https://user-images.githubusercontent.com/15167039/53692245-98e50980-3db6-11e9-9caf-262d1d8e45bf.png)
+
+
+Generating Token For User
+
+![generating_token](https://user-images.githubusercontent.com/15167039/53692273-eb262a80-3db6-11e9-8975-550ae3121665.png)
+
+
+Verify Token
+
+![verify_token](https://user-images.githubusercontent.com/15167039/53692282-17da4200-3db7-11e9-879b-97d7f85bbfbe.png)
 
