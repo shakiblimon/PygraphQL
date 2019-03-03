@@ -21,7 +21,7 @@ class LinkNote(DjangoObjectType):
 class VoteNote(DjangoObjectType):
     class Meta:
         model = Vote
-        interface = (graphene.relay.Node,)
+        interfaces= (graphene.relay.Node,)
 
 
 class RelayQuery(graphene.ObjectType):

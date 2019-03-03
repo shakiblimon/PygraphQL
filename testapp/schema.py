@@ -2,10 +2,6 @@ from django.db.models import Q
 
 import graphene
 from graphene_django import DjangoObjectType
-from graphql import GraphQLrror
-
-
-
 
 # class CategoryNode(DjangoObjectType):
 #     class Meta:
@@ -45,16 +41,29 @@ from graphql import GraphQLrror
 #         if post.published or info.context.user == post.owner:
 #             return post
 #         return None
-from testapp.models import Link
+from graphql import GraphQLError
+
+from testapp.models import Link, Vote
+from users.schema import UserType
 
 '''
-    Link model content
+    Link model Type
 '''
 
 
 class LinkType(DjangoObjectType):
     class Meta:
         model = Link
+
+
+'''
+    Vote Model Type
+'''
+
+
+class VoteType(DjangoObjectType):
+    class Meta:
+        model = Vote
 
 
 '''
@@ -82,45 +91,92 @@ class CreateLink(graphene.Mutation):
         )
 
 
-'''
-    #####################################
-'''
-
-
-
-#########################
-
+#
+#          Create Link Query
+# ----------------------------------------------
 class Query(object):
-    category = relay.Node.Field(CategoryNode)
-    all_categories = DjangoFilterConnectionField(CategoryNode)
+    # category = relay.Node.Field(CategoryNode)
+    # all_categories = DjangoFilterConnectionField(CategoryNode)
+    #
+    # ingredient = relay.Node.Field(IngredientNode)
+    # all_ingredients = DjangoFilterConnectionField(IngredientNode)
+    #
+    # ## Queryset Filtering On Lists
+    #
+    # all_posts = DjangoFilterConnectionField(PostNode)
 
-    ingredient = relay.Node.Field(IngredientNode)
-    all_ingredients = DjangoFilterConnectionField(IngredientNode)
+    links = graphene.List(
+        LinkType,
+        search=graphene.String(),
+        first=graphene.Int(),
+        skip=graphene.Int(),
+    )
+    votes = graphene.List(VoteType)
 
-    ## Queryset Filtering On Lists
+    def resolve_link(self, info, search=None, first=None, skip=None, **kwargs):
+        qs=Link.objects.all()
 
-    all_posts = DjangoFilterConnectionField(PostNode)
+        if search:
+            filter = (
+                    Q(url__icontains=search) |
+                    Q(description__icontains=search)
+            )
+            qs = qs.filter(filter)
 
-    links = graphene.List(LinkType)
+        if skip:
+            qs = qs[skip::]
+
+        if first:
+            qs = qs[:first]
+
+        return qs
+
+    def resolve_votes(self, info, **kwargs):
+        return Vote.objects.all()
+
+    #####################################
+    #
+    #
+    #
+    # def resolve_all_posts(self, info):
+    #     return Post.objects.filter(published=True)
+    #
+    # #   Userbased Filtering Onlist
+    #
+    # my_post = DjangoFilterConnectionField(PostNode)
+    #
+    # def resolve_ny_post(self, info):
+    #     # context will referance to the Django request
+    #
+    #     if not info.comtext.user.is_authenticated():
+    #         return Post.objects.none()
+    #     else:
+    #         return Post.objects.filter(owner=info.comtext.user)
+
+class CreateVote(graphene.Mutation):
+    user = graphene.Field(UserType)
+    link = graphene.Field(LinkType)
+
+    class Arguments:
+        link_id = graphene.Int()
+
+    def mutate(self, info, link_id):
+        user = info.context.user
+        if user.is_anonymous:
+            raise GraphQLError('You must be logged to vote!')
+
+        link = Link.objects.filter(id=link_id).first()
+        if not link:
+            raise Exception('Invalid Link!')
+
+        Vote.objects.create(
+            user=user,
+            link=link,
+        )
+
+        return CreateVote(user=user, link=link)
 
 
-#####################################
-
-
-    def resolve_link(self, info, **kwargs):
-        return Link.objects.all()
-
-    def resolve_all_posts(self, info):
-        return Post.objects.filter(published=True)
-
-    #   Userbased Filtering Onlist
-
-    my_post = DjangoFilterConnectionField(PostNode)
-
-    def resolve_ny_post(self, info):
-        # context will referance to the Django request
-
-        if not info.comtext.user.is_authenticated():
-            return Post.objects.none()
-        else:
-            return Post.objects.filter(owner=info.comtext.user)
+class Mutation(graphene.ObjectType):
+    create_link = CreateLink.Field()
+    create_vote = CreateVote.Field()

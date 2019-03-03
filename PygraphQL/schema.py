@@ -1,6 +1,8 @@
-import graphene,graphql_jwt
+import graphene
+import graphql_jwt
 import testapp.schema_relay
-import testapp.schema,users.schema
+import testapp.schema
+import users.schema
 
 class Query(testapp.schema.Query, users.schema.Query,testapp.schema_relay.RelayQuery, graphene.ObjectType):
     # as we begin to add more apps to this project

@@ -15,7 +15,7 @@ class Link(models.Model):
 
 class Vote(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
-    link = models.ForeignKey('links.Link', null=True, on_delete=models.CASCADE)
+    link = models.ForeignKey('testapp.Link', null=True, on_delete=models.CASCADE)
 
 #####################################
 # '''
