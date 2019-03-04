@@ -19,6 +19,7 @@ class Vote(models.Model):
     link = models.ForeignKey('testapp.Link', related_name='votes', on_delete=models.CASCADE)
 
 #####################################
+
 # '''
 #
 # class Category(models.Model):
