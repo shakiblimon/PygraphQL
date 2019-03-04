@@ -71,7 +71,7 @@ GraphQL query language is all about selecting fields on objects.
 #### Using Relay on Links
 Graphene has complete support for Relay and offers some utils to make integration from Python easy.Create 
 **_schema_relay.py_** into project directory go over the essential changes:
-```.python
+```python
 class RelayQuery(graphene.ObjectType):
     relay_link = graphene.relay.Node.Field(LinkNode)
     relay_links = DjangoFilterConnectionField(LinkNode, filterset_class=LinkFilter)
