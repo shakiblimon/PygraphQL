@@ -32,7 +32,7 @@ class Query({app_name}.schema.Query, graphene.ObjectType):
     pass
 
 # Create schema
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query,mutation = Mutation)
 ```
 **{app_name} == Your django project app name.**
 
@@ -40,45 +40,12 @@ schema = graphene.Schema(query=Query)
 There are several ways you may want to limit access to data when working with Graphene and Django: 
 limiting which fields are accessible via GraphQL and limiting which objects a user can access.
 
-Let’s use a simple example model:
-```
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    published = models.BooleanField(default=False)
-    owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-
-```
-owner = models.ForeignKey(**'auth.User'**, on_delete=models.CASCADE)
-
 ### Creating your query
 **GraphQL query language is all about selecting fields on objects.**
 
 #### Using Relay
->Graphene has complete support for Relay and offers some utils to make integration from Python easy.
+Graphene has complete support for Relay and offers some utils to make integration from Python easy.
 
-```.env
-class CategoryNode(DjangoObjectType):
-    class Meta:
-        model = Category
-        filter_fields = ['name', 'ingredients']
-        interfaces = (relay.Node, )
-```
-interfaces = (**relay.Node**,)
-
-### GraphQL & Django debuging middleware
-
-You can debug your GraphQL queries in a similar way to django-debug-toolbar, but outputing in the results in 
-GraphQL response as fields, instead of the graphical HTML interface.
-Set it into **_settings.py_**
-```.env
-GRAPHENE = {
-    'SCHEMA': 'PygraphQL.schema.schema',
-    'MIDDLEWARE': [
-        'grapehe_django.debug.DjangoDebugMiddleware'
-    ]
-}
-```
 ### Screenshot
 Create User
 
