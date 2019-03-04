@@ -10,8 +10,6 @@ For **_JWT_** Authentication
 ```shell
 pip install django-graphql-jwt
 ```
- 
-
 ### Configuring Graphene Django
 
 On the **{django_project_name}**/```settings.py```, add the following:
