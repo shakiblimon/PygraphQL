@@ -94,3 +94,12 @@ Verify Token
 
 ![verify_token](https://user-images.githubusercontent.com/15167039/53692282-17da4200-3db7-11e9-879b-97d7f85bbfbe.png)
 
+Create Link
+
+![create_link](https://user-images.githubusercontent.com/15167039/53711349-f4250380-3e6b-11e9-83b7-22efdeff4fee.png)
+
+
+Query Link
+
+![query](https://user-images.githubusercontent.com/15167039/53711408-2f273700-3e6c-11e9-8d4d-0a2eaf02ca63.png)
+
