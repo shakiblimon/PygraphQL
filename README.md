@@ -15,7 +15,7 @@ pip install django-graphql-jwt
 ### Configuring Graphene Django
 
 On the **{django_project_name}**/```settings.py```, add the following:
-```.env
+```python
 INSTALLED_APPS = (
     # At the end of all the default packages
     'graphene_django',
@@ -23,13 +23,13 @@ INSTALLED_APPS = (
 ```
 ### Schema Settings
 Set your schema into ```settings.py```
-```
+```python
 GRAPHENE = {
     'SCHEMA': '{django_project_name}.schema.schema',
 }
 ```
 **django_project_name == your django project name**
-```
+```python
 import graphene
 import {app_name}.schema
 ```
@@ -41,7 +41,7 @@ class Query({app_name}.schema.Query, graphene.ObjectType):
 
 
 # Create schema
-```
+```shell
 schema = graphene.Schema(query=Query,mutation = Mutation)
 ```
 **{app_name} == Your django project app name.**
